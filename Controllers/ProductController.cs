@@ -112,7 +112,9 @@ namespace CashRegister.Controllers
         return NotFound();
       }
 
-      _context.Products.Remove(product);
+      product.IsActive = false;
+      _context.Entry(product).State = EntityState.Modified;
+
       await _context.SaveChangesAsync();
 
       return NoContent();
