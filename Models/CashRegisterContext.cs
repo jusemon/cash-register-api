@@ -14,7 +14,7 @@ namespace CashRegister.Models
 
     public CashRegisterContext(DbContextOptions<CashRegisterContext> options, IConfiguration config) : base(options)
     {
-      DbConnection = config.GetConnectionString("MySQL");
+      DbConnection = Environment.GetEnvironmentVariable("MYSQL_CONNECTION")!;
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
