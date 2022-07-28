@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CashRegisterJSM.Migrations
+namespace CashRegister.Migrations
 {
     [DbContext(typeof(CashRegisterContext))]
     [Migration("20220723024642_UpdateSchema")]

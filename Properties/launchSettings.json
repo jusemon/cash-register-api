@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "CashRegisterJSM": {
+    "CashRegister": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

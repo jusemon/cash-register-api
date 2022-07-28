@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace CashRegisterJSM.Migrations
+namespace CashRegister.Migrations
 {
     public partial class InitialCreate : Migration
     {

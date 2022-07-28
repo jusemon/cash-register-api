@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CashRegisterJSM.Migrations
+namespace CashRegister.Migrations
 {
     [DbContext(typeof(CashRegisterContext))]
     partial class CashRegisterContextModelSnapshot : ModelSnapshot

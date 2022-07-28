@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CashRegisterJSM.Migrations
+namespace CashRegister.Migrations
 {
     public partial class UpdateSchema : Migration
     {
