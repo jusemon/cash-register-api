@@ -19,7 +19,8 @@ namespace CashRegister.Models
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-      options.UseMySQL(DbConnection);
+      var serverVersion = new MySqlServerVersion(new Version(5, 5, 62));
+      options.UseMySql(DbConnection,serverVersion);
     }
   }
 }
