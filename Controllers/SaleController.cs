@@ -100,10 +100,17 @@ namespace CashRegister.Controllers
                 sale.ProductSales = saleRequest.ProductSales.Select(productSaleRequest => GetProductSale(productSaleRequest, products)).ToList();
                 sale.Total = sale.ProductSales.Sum(ps => ps.Quantity * ps.Price);
                 sale.Date = DateTime.Now;
-
-                if (sale.Payment < sale.Total && !sale.IsLoan)
+                if (sale.IsLoan)
                 {
-                    throw new Exception("The total value is higher than the payment");
+                    sale.Payment = 0;
+                    if (string.IsNullOrEmpty(sale.ApartmentNumber))
+                    {
+                        throw new Exception("The apartament number is required if it's a loan.");
+                    }
+                }
+                else if (sale.Payment < sale.Total)
+                {
+                    throw new Exception("The payment is insufficient.");
                 }
 
                 _context.Sales.Add(sale);
