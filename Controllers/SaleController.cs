@@ -101,7 +101,7 @@ namespace CashRegister.Controllers
                 sale.Total = sale.ProductSales.Sum(ps => ps.Quantity * ps.Price);
                 sale.Date = DateTime.Now;
 
-                if (sale.Payment < sale.Total || sale.IsLoan)
+                if (sale.Payment < sale.Total && !sale.IsLoan)
                 {
                     throw new Exception("The total value is higher than the payment");
                 }
