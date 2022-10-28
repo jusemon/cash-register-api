@@ -6,13 +6,13 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
 
-# Copy dotnet-tools and restore
+# Copy dotnet-tools and restore (EF section)
 COPY .config/*.json ./
+ARG MYSQL_CONNECTION
 RUN dotnet tool restore
 
 # Copy everything else and build
 COPY . ./
-ARG MYSQL_CONNECTION
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
