@@ -18,11 +18,14 @@ builder.Services.AddDbContext<CashRegisterContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-// if (app.Environment.IsDevelopment())
-// {
-app.UseSwagger();
-app.UseSwaggerUI();
-// }
+
+bool tryParse = Boolean.TryParse(Environment.GetEnvironmentVariable("ENABLE_SWAGGER"), out bool enableSwagger);
+
+if (app.Environment.IsDevelopment() || (tryParse && enableSwagger))
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseCors();
 app.UseHttpsRedirection();
